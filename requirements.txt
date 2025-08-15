@@ -11,3 +11,4 @@ numpy                         # Math operations for embeddings
 tqdm                          # Progress bars during ingestion
 openai
 python-dotenv
+google-generativeai
