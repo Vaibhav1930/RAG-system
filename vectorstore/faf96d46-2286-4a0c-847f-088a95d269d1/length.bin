@@ -1,0 +1,61 @@
+ this timeout an exception will be thrown. This parameter affects
+        neither Retry Timeout nor RPC Timeout.
+
+        ``retry`` (google.api_core.retry.Retry): (Optional) How to retry the
+        polling RPC. The ``retry.timeout`` property of this parameter is the
+        Retry Timeout as defined in :class:`google.api_core.retry.Retry`.
+        This parameter defines ONLY how the polling RPC call is retried
+        (i.e. what to do if the RPC we used for polling returned an error). It
+        does NOT define how the polling is done (i.e. how frequently and for
+        how long to call the polling RPC); use the ``polling`` parameter for that.
+        If a polling RPC throws and error and retrying it fails, the whole
+        future fails with the corresponding exception. If you want to tune which
+        server response error codes are not fatal for operation polling, use this
+        parameter to control that (``retry.predicate`` in particular).
+
+        ``polling`` (google.api_core.retry.Retry): (Optional) How often and
+        for how long to call the polling RPC periodically (i.e. what to do if
+        a polling rpc returned successfully but its returned result indicates
+        that the long running operation is not completed yet, so we need to
+        check it again at some point in future). This parameter does NOT define
+        how to retry each individual polling RPC in case of an error; use the
+        ``retry`` parameter for that. The ``polling.timeout`` of this parameter
+        is Polling Timeout as defined in as defined in
+        :class:`google.api_core.retry.Retry`.
+
+        For each of the arguments, there are also default values in place, which
+        will be used if a user does not specify their own. The default values
+        for the three parameters are not to be confused with the default values
+        for the corresponding arguments in this method (those serve as "not set"
+        markers for the resolution logic).
+
+        If ``timeout`` is provided (i.e.``timeout is not _DEFAULT VALUE``; note
+        the ``None`` value means "infinite timeout"), it will be used to control
+        the actual Polling Timeout. Otherwise, the ``polling.timeout`` value
+        will be used instead (see below for how the ``polling`` config itself
+        gets resolved). In other words, this parameter  effectively overrides
+        the ``polling.timeout`` value if specified. This is so to preserve
+        backward compatibility.
+
+        If ``retry`` is provided (i.e. ``retry is not None``) it will be used to
+        control retry behavior for the polling RPC and the ``retry.timeout``
+        will determine the Retry Timeout. If not provided, the
+        polling RPC will be called with whichever default retry config was
+        specified for the polling RPC at the moment of the construction of the
+        polling RPC's client. For example, if the polling RPC is
+        ``operations_client.get_operation()``, the ``retry`` parameter will be
+        controlling its retry behavior (not polling  behavior) and, if not
+        specified, that specific method (``operations_client.get_operation()``)
+        will be retried according to the default retry config provided during
+        creation of ``operations_client`` client instead. This argument exists
+        mainly for backward compatibility; users are very unlikely to ever need
+        to set this parameter explicitly.
+
+        If ``polling`` is provided (i.e. ``polling is not None``), it will be used
+        to control the overall polling behavior and ``polling.timeout`` will
+        control Polling Timeout unless it is overridden by ``timeout`` parameter
+        as described above. If not provided, the``polling`` parameter specified
+        during construction of this future (the ``polling`` argument in the
+        constructor) will be used instead. Note: since the ``timeout`` argument may
+        override ``polling.timeout`` value, this parameter should be viewed as
+        c
