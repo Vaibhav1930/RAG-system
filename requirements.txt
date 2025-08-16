@@ -1,12 +1,27 @@
-streamlit==1.36.0
-chromadb==0.5.3
+# Core
+streamlit>=1.36.0
+chromadb>=0.5.3
 pydantic<2
-sentence-transformers==2.7.0
-langchain==0.2.10
-langchain-community==0.2.9
-pypdf==4.3.1
-markdown-it-py==3.0.0
-rapidfuzz==3.9.6
+sentence-transformers>=2.7.0
+
+# LangChain stack
+langchain>=0.2.10
+langchain-community>=0.2.9
+
+# PDF support
+pypdf>=4.3.1
+
+# Utils
+markdown-it-py>=3.0.0
+rapidfuzz>=3.9.6
 numpy
 tqdm
-google-generativeai
+
+# Gemini API
+google-generativeai>=0.7.0
+
+# Critical fix for ChromaDB (forces modern sqlite)
+pysqlite3-binary>=0.5.2
+
+# Rich logging
+rich>=13.7.0
