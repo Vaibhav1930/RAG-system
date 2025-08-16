@@ -1,3 +1,4 @@
+import patch_sqlite  
 import os
 import chromadb
 from typing import List, Dict
