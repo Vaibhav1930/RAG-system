@@ -10,5 +10,5 @@ rapidfuzz
 numpy
 tqdm
 google-generativeai
-pysqlite3-binary
+pysqlite3-binary>=0.5.2
 rich
