@@ -1,14 +1,14 @@
-streamlit>=1.36.0
-chromadb==0.4.22          # stable, avoids tokenizers 0.20 build issues
-pydantic>=2.7.4,<3.0.0    # required by langchain-core
-sentence-transformers==2.7.0
-langchain==0.2.10
-langchain-community==0.2.9
-pypdf==4.3.1
-markdown-it-py==3.0.0
-rapidfuzz==3.9.6
+streamlit
+chromadb          # stable, avoids tokenizers 0.20 build issues
+pydantic    # required by langchain-core
+sentence-transformers
+langchain
+langchain-community
+pypdf
+markdown-it-py
+rapidfuzz
 numpy
 tqdm
-google-generativeai>=0.7.0
-pysqlite3-binary>=0.5.2   # fixes sqlite issue with Chroma
-rich>=13.7.0
+google-generativeai
+pysqlite3-binary
+rich
