@@ -92,7 +92,7 @@ st.markdown('<div class="main-title">🧬 Personal Multi-User RAG App</div>', un
 st.markdown('<div class="subtitle">Upload your own papers and query your isolated personal knowledge base securely.</div>', unsafe_allow_html=True)
 
 # Check for Clerk Publishable Key in environment variables
-clerk_publishable_key = os.getenv("CLERK_PUBLISHABLE_KEY")
+clerk_publishable_key = os.getenv("CLERK_PUBLISHABLE_KEY") or os.getenv("NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY")
 
 if not clerk_publishable_key:
     st.error("🔑 **Clerk Publishable Key is missing!**")
