@@ -9,6 +9,7 @@ markdown-it-py
 rapidfuzz
 numpy
 tqdm
-google-generativeai
-pysqlite3-binary>=0.5.2
+# google-generativeai
+groq
+# pysqlite3-binary>=0.5.2
 rich
